@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="{{ url_for('add_entry') }}" method="POST" class="add-entry"> 
+    <dl>
+        <dt>Title:
+        <dd><input type="text" size="30" name="title">
+        <dt>Text:
+        <dd><textarea name="text" rows="5" cols="40"></textarea>
+        <dd><input type="submit" value="Share">
+    </dl>
+</form>
+
+<ul class="entries">
+    {% for entry in entries|reverse %}
+        <li>
+            <h2>{{ entry.title }}  <a href="/delete/{{ entry.id }}">x</a></h2>
+            <p>{{ entry.text }}</p>
+        </li>
+    {% else %}
+        <li>What the shit. There are no entries.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
