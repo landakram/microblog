@@ -1,0 +1,22 @@
+# Microblog! 
+
+This is a simple tutorial based on the official [Flask tutorial](http://flask.pocoo.org/docs/tutorial/).
+It uses SQLAlchemy instead of raw sqlite and doesn't support any sort of
+authentication.
+
+## Instructions
+
+1. Read the source.
+2. Clone the repo:
+    
+        $ git clone git@github.com:landakram/microblog.git
+
+3. Install the dependencies:
+    
+        $ cd microblog
+        $ easy_install pip                  # if you don't already have it
+        $ pip install -r requirements.txt   # we should use virtualenv, but that's out of scope for this tutorial
+
+4. Run:
+
+        $ python app.py
