@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% if session.get('user_id') == user.id %}
 <form action="{{ url_for('add_entry') }}" method="POST" class="add-entry"> 
     <dl>
         <dt>Title:
@@ -9,11 +10,16 @@
         <dd><input type="submit" value="Share">
     </dl>
 </form>
+<h1>Your posts</h1>
+{% else %}
+<h1>{{ user.username }}'s posts</h1>
+{% endif %}
 
 <ul class="entries">
-    {% for entry in entries|reverse %}
+    {% for entry in user.entries|reverse %}
         <li>
-            <h2>{{ entry.title }}  <a href="/delete/{{ entry.id }}">x</a></h2>
+        <h2>{{ entry.title }}  {% if session.get('user_id') == user.id %}<a href="/delete/{{ entry.id }}">x</a>{% endif %}
+        </h2>
             <p>{{ entry.text }}</p>
         </li>
     {% else %}

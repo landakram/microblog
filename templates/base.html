@@ -7,6 +7,14 @@
     <body>
         <div class="page">
             <h1>Microblog!</h1>
+            <div class="metanav">
+                <a href="{{ url_for('list_users') }}">all users</a>
+                {% if session.get('user_id') %}
+                <a href="{{ url_for('logout') }}">logout</a>
+                {% else %}
+                <a href="{{ url_for('index') }}">login</a>
+                {% endif %}
+            </div>
             {% for message in get_flashed_messages() %}
                 <div class="flash">{{ message }}</div>
             {% endfor %}
