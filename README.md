@@ -1,8 +1,8 @@
 # Microblog! 
 
 This is a simple tutorial based on the official [Flask tutorial](http://flask.pocoo.org/docs/tutorial/).
-It uses SQLAlchemy instead of raw sqlite and doesn't support any sort of
-authentication. It also supports deletion of posts.
+It uses SQLAlchemy instead of raw sqlite. The `users` branch supports
+authentication and different users. Both `users` and `master` support deletion.
 
 ## Instructions
 
